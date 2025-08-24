@@ -1,0 +1,14 @@
+* {
+    color: white;
+    font-family: sans-serif;
+    background-color: rgb(35, 78, 143);
+}
+
+main {
+
+}
+
+div {
+    background-color: rgb(231, 155, 33);
+    width: fit-content;
+}
