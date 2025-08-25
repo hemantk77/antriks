@@ -1,14 +1,14 @@
 * {
     color: white;
     font-family: sans-serif;
+    background-color: rgb(22, 94, 146);
 }
 
-body {
-  background: url("space.jpg") center/cover no-repeat;
+header {
+    
 }
 
-div {
-    background-color: rgb(231, 155, 33);
-    width: fit-content;
-    border: 5px;
+.logo img {
+  width: 150px;
+  height: 75px;
 }
