@@ -1,14 +1,14 @@
 * {
     color: white;
     font-family: sans-serif;
-    background-color: rgb(35, 78, 143);
 }
 
-main {
-
+body {
+  background: url("space.jpg") center/cover no-repeat;
 }
 
 div {
     background-color: rgb(231, 155, 33);
     width: fit-content;
+    border: 5px;
 }
