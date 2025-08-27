@@ -1,15 +1,19 @@
 * {
     color: white;
     font-family: sans-serif;
-
 }
 
 body {
-    background-image: url("space_background.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+  margin: 0;
+  min-height: 200vh;
+  background-color: rgb(0, 0, 0);
+  max-height: fit-content;
+  background-image: url("space_background.jpg");
+  background-size: contain;
+  background-position: top center;
+  background-repeat: no-repeat;
 }
+
 
 header {
     display: flex;
@@ -22,9 +26,9 @@ header {
   height: 75px;
 }
 
-.logo img:hover {
+/*.logo img:hover {
   transform: (1.05);
-}
+}*/
 
 .navbar {
   display: flex;
@@ -43,3 +47,42 @@ header {
 .navbar a:hover {
   font-weight: 700;
 }
+
+.scroll-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.08);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+  cursor: pointer;
+  z-index: 9999;
+  transform: translateY(12px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 280ms ease, transform 280ms ease;
+}
+
+.scroll-top svg { 
+  display: block;
+}
+
+.scroll-top.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* optional hover effect */
+.scroll-top:hover {
+  background: rgba(255,255,255,0.12);
+  transform: translateY(-3px);
+}
+
