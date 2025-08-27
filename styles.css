@@ -5,10 +5,34 @@
 }
 
 header {
-    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo img {
   width: 150px;
   height: 75px;
+}
+
+.logo img:hover {
+  transform: (1.05);
+}
+
+.navbar {
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar a {
+  display: inline-block;
+  width: 150px;
+  font-size: 1rem;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 400;
+}
+
+.navbar a:hover {
+  font-weight: 700;
 }
