@@ -12,13 +12,40 @@
             <a href="index.html"><img src="antriks.png" alt="Antriks logo"></a>
         </div>
 
-        <nav class="navbar">
+      
+    </header>
+
+    <main>
+      <nav class="navbar">
                 <a href="#">Launches</a>
                 <a href="#">News</a>
                 <a href="#">Spacecraft</a>
                 <a href="#">About</a>
         </nav>
-    </header>
+
+      <section class="main-launch-card">
+        <div class="launch-info">
+          <h2>Next Launch</h2>
+          <h1 id="missionName">Mission Name</h1>
+          <p id="launchDate">Launch Date</p>
+          <p id="rocketName">Rocket Name</p>
+          <p id="launchSite">Launch Site</p>
+          <a id="moreInfoLink" href="#" target="_blank" rel="noopener noreferrer">More Info</a>
+        </div>
+        <div class="countdown">
+          <h3>Countdown to Launch</h3>
+          <div id="countdownTimer">
+            <span id="days">00</span> Days 
+            <span id="hours">00</span> Hours 
+            <span id="minutes">00</span> Minutes 
+            <span id="seconds">00</span> Seconds
+          </div>
+        </div>
+      </section>
+      <section class="other-launch-card">
+
+      </section>
+    </main>
 
     <button id="scrollTop" class="scroll-top" aria-label="Scroll to top" title="Back to top">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
