@@ -132,6 +132,12 @@ header {
   margin: 1rem;
 }
 
+@media (max-width: 768px) {
+  .first-section {
+    flex-direction: column; /*stack instead of row*/
+  }
+}
+
 .intro {
   text-align: left;
   line-height: 1.3;
