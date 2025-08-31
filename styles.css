@@ -5,13 +5,9 @@ FCA311 - Yellow
 E5E5E5 - Light Grey
 FFFFFF - White
 */
-
-* {
+body {
   color: white;
   font-family: sans-serif;
-}
-
-body {
   margin: 0;
   min-height: 200vh;
   background-color: black;
@@ -84,8 +80,8 @@ header {
   align-items: center;
   justify-content: center;
   background: rgba(255,255,255,0.08);
-  color: white;
-  border: none;
+  color: #FCA311;
+  border: 1px solid rgba(0, 0, 0, 0.18);
   border-radius: 50%;
   box-shadow: 0 6px 18px rgba(0,0,0,0.5);
   cursor: pointer;
@@ -148,5 +144,37 @@ header {
 
 .intro p {
   margin-bottom: 10px;
+}
+
+.hero-launch {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: black;
+  background-color: rgba(255, 255, 255);
+  margin: 2rem;
+  border-radius: 50px;
+  gap: 1rem;
+  height: 200px;
+}
+
+.hero-launch1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.hero-launch2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .hero-launch {
+    flex-direction: column; /*stack instead of row*/
+    height: auto;
+    gap: 1rem;
+  }
 }
 
