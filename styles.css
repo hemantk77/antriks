@@ -41,11 +41,13 @@ header {
 
 .navbar a {
   color: white;
-  display: inline-block;
+  display: flex;
   width: 5rem;
   font-size: 1.2rem;
   text-decoration: none;
   justify-content: center;
+  align-items: center;
+  padding: 8px 20px;
   text-align: center;
   font-weight: 400;
   transition: transform 0.5s ease;
@@ -54,6 +56,10 @@ header {
 .navbar a:hover {
   font-weight: 700;
   transform: scale(1.2);
+  color: black;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .hero-image {
@@ -151,9 +157,8 @@ header {
   align-items: center;
   justify-content: space-evenly;
   color: black;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255);
   margin: 2rem;
-  border: rgb(255, 164, 18), 2px solid;
   border-radius: 50px;
   gap: 1rem;
   height: 300px;
@@ -164,6 +169,7 @@ header {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 2rem;
   font-weight: 700;
+  text-align: left;
 }
 
 .hero-launch2 {
