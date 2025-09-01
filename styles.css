@@ -203,18 +203,13 @@ header {
   gap: 1rem;
 }
 
-#section-title {
-  text-decoration: italic;
-  font-weight: 700;
-}
-
 .hero-card1 {
   width: 100%;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
   font-weight: 400;
   text-align: center;
-  margin: 0.5rem;
+  margin: 1rem;
 }
 
 .more-info a {
@@ -230,7 +225,7 @@ header {
   display: flex;
   justify-content: right;
   align-items: center;
-  padding-right: 2rem;
+  padding-right: 1rem;
 }
 
 .hero-card-img {
