@@ -191,7 +191,7 @@ header {
   color: #FCA311;
 }
 
-.hero-card {
+.launch-card {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -201,6 +201,12 @@ header {
   margin: 2rem;
   border-radius: 50px;
   gap: 1rem;
+}
+
+.launch-card:hover {
+  box-shadow: 2px 4px 4px 8px rgba(255, 255, 255);
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
 }
 
 .hero-card1 {
@@ -216,8 +222,17 @@ header {
   text-decoration: none;
   color: white;
   background-color: #14213D;
+  font-weight: 700;
   padding: 0.5rem 1rem;
   border-radius: 50px;
+}
+
+.more-info a:hover {
+  background-color: #FCA311;
+  color: black;
+  font-weight: 700;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
 }
 
 .hero-card2 {
