@@ -22,7 +22,7 @@ function typeWriter() {
   if (i < text.length) {
     typingE1.innerHTML += text.charAt(i);
     i++;
-    setTimeout(typeWriter, 25);
+    setTimeout(typeWriter, 35);
   }
 }
 
