@@ -151,11 +151,13 @@ header {
   align-items: center;
   justify-content: space-evenly;
   color: black;
-  background-color: rgba(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.8);
   margin: 2rem;
+  border: rgb(255, 164, 18), 2px solid;
   border-radius: 50px;
   gap: 1rem;
-  height: 200px;
+  height: 300px;
+  backdrop-filter: blur(10px);
 }
 
 .hero-launch1 {
