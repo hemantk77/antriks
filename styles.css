@@ -241,11 +241,14 @@ header {
   justify-content: right;
   align-items: center;
   padding-right: 1rem;
+  margin-right: 1rem;
 }
 
 .hero-card-img {
-  width: 75%;
+  width: 100%;
+  max-width: 400px;
   height: auto;
+  display: block;
   border-radius: 1rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
