@@ -197,14 +197,14 @@ header {
   justify-content: center;
   color: black;
   height: auto;
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255);
   margin: 2rem;
   border-radius: 50px;
   gap: 1rem;
 }
 
 .launch-card:hover {
-  box-shadow: 2px 4px 4px 8px rgb(255, 255, 255);
+  box-shadow: 2px 4px 4px 8px rgba(255, 255, 255);
   transform: scale(1.02);
   transition: transform 0.3s ease;
 }
