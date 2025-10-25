@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "launches/layout.html" %}
 {% load static %}
 
 {% block title %}Antriks{% endblock %}
@@ -51,10 +51,7 @@
       </div>
     </div>
     <div class="hero-card2">
-      <img 
-        src="{{ launch.image | default:launch.rocket.configuration.image_url | default:'/static/images/sc1.jpg' }}" 
-        alt="Rocket" 
-        class="hero-card-img">
+      <img src="{{ launch.image | default:launch.rocket.configuration.image_url | default:'/static/images/sc1.jpg' }}" alt="Rocket" class="hero-card-img">
     </div>
   </div>
   {% empty %}
