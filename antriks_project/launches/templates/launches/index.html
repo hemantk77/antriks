@@ -1,16 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Antriks</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   
 </head>
 <body>
     <header>
         <div class="logo">
-            <a href="index.html"><img src="antriks.png" alt="Antriks logo"></a>
+            <a href="index.html"><img src="{% static 'images/antriks.png' %}" alt="Antriks logo"></a>
         </div>
     </header>
 
@@ -23,7 +24,7 @@
       </nav>
 
       <div class="hero-image1">
-        <img src="space_background.jpg" alt="Space Background" class="space-bg">
+        <img src="{% static 'images/space_background.jpg' %}" alt="Space Background" class="space-bg">
       </div>
 
       <section class="intro-card">
@@ -32,7 +33,7 @@
 
       <div class="first-section">
        <div class="hero-image2">
-         <img src="sc3.jpg" alt="Spacecraft" class="artemis">
+         <img src="{% static 'images/sc3.jpg' %}" alt="Spacecraft" class="artemis">
        </div>
 
        <div class="intro">
@@ -46,64 +47,38 @@
       </section>
 
 <div id="launches-grid" class="upcoming-launches-grid">
-  <div class="launch-card">
-    <div class="hero-card1">
-      <div class="launch-details">
-        <h2>Mission Name here</h2>
-        <p>Rocket name here</p>
-        <p>Launch Date here</p>
-        <p>Launch Site here</p>
-        <h3>Countdown</h3>
-        <p class="countdown">00d 00h 00m 00s</p>
-      </div>
-      <div class="more-info">
-        <a href="#">More</a>
-      </div>
-    </div>
-    <div class="hero-card2">
-      <img src="sc1.jpg" alt="Rocket" class="hero-card-img">
-    </div>
-  </div>
-  <div class="launch-card">
-    <div class="hero-card1">
-      <div class="launch-details">
-        <h2>Mission Name here</h2>
-        <p>Rocket name here</p>
-        <p>Launch Date here</p>
-        <p>Launch Site here</p>
-        <h3>Countdown</h3>
-        <p class="countdown">00d 00h 00m 00s</p>
-      </div>
-      <div class="more-info">
-        <a href="#">More</a>
-      </div>
-    </div>
-    <div class="hero-card2">
-      <img src="sc1.jpg" alt="Rocket" class="hero-card-img">
-    </div>
-  </div>
-  <div class="launch-card">
-    <div class="hero-card1">
-      <div class="launch-details">
-        <h2>Mission Name here</h2>
-        <p>Rocket name here</p>
-        <p>Launch Date here</p>
-        <p>Launch Site here</p>
-        <h3>Countdown</h3>
-        <p class="countdown">00d 00h 00m 00s</p>
-      </div>
-      <div class="more-info">
-        <a href="#">More</a>
-      </div>
-    </div>
-    <div class="hero-card2">
-      <img src="sc1.jpg" alt="Rocket" class="hero-card-img">
-    </div>
-  </div>
-</div>
 
+  {% for launch in launches %}
+  <div class="launch-card">
+    <div class="hero-card1">
+      <div class="launch-details">
+        <h2>{{ launch.name | default:"Unknown mission" }}</h2>
+        <p>{{ launch.rocket.configuration.name | default:"Unknown rocket" }}</p>
+        <p>{{ launch.net | date:"F j, Y, P" | default:"Unknown date" }}</p> <p>{{ launch.pad.location.name | default:"Unknown site" }}</p>
+        <h3>Countdown</h3>
+        <p class="countdown" data-launch-time="{{ launch.net }}">Loading...</p>
+      </div>
+      <div class="more-info">
+        <a href="#">More</a>
       </div>
     </div>
+    <div class="hero-card2">
+      <img 
+        src="{{ launch.image | default:launch.rocket.configuration.image_url | default:'/static/images/sc1.jpg' }}" 
+        alt="Rocket" 
+        class="hero-card-img">
+    </div>
+  </div>
+  {% empty %}
+  <div class="launch-card">
+      <div class="hero-card1">
+          <h2>Could not load launch data</h2>
+          <p>Please try again later.</p>
+      </div>
+  </div>
+  {% endfor %}
+  </div>
+
     </main>
 
     <button id="scrollTop" class="scroll-top" aria-label="Scroll to top" title="Back to top">
@@ -112,6 +87,6 @@
       </svg>
     </button>
 
-    <script src="script.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
