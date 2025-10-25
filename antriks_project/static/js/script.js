@@ -27,27 +27,39 @@ function typeWriter() {
 typeWriter();
 
 
-    function startCountdown(element, launchTime) {
-      function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = new Date(launchTime).getTime() - now;
+document.addEventListener("DOMContentLoaded", () => {
+  const countdownElements = document.querySelectorAll(".countdown");
+  
+  countdownElements.forEach(element => {
+    const launchTime = element.getAttribute("data-launch-time");
+    if (launchTime) {
+      startCountdown(element, launchTime);
+    } else {
+      element.textContent = "Time TBD";
+    }
+  });
+});
 
-        if (distance < 0) {
-          element.textContent = "Launched!";
-          return;
-        }
+function startCountdown(element, launchTime) {
+  const launchDate = new Date(launchTime).getTime();
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = launchDate - now;
 
-        element.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-      }
-
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
+    if (distance < 0) {
+      element.textContent = "Launched!";
+      return;
     }
 
-    // Run after page loads
-    document.addEventListener("DOMContentLoaded", loadLaunches);
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    element.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }
+
+  updateCountdown(); // Run once immediately
+  setInterval(updateCountdown, 1000); // Update every second
+}
