@@ -39,15 +39,24 @@ def agency_launches(request, agency_name):
     View for a specific agency's launch page.
     Fetches launches filtered by the agency name.
     """
-    try:
-        # Call the API with a search filter
-        response = requests.get(API_URL, params={"limit": 10, "search": agency_name})
-        response.raise_for_status()
-        data = response.json()
-        launches = data.get("results", [])
-    except requests.RequestException as e:
-        print(f"Error fetching API: {e}")
-        launches = []
+    cache_key = f"launches_{agency_name}"
+    launches = cache.get(cache_key)
+    
+    if not launches:
+        try:
+            # Call the API with a search filter
+            response = requests.get(API_URL, params={"limit": 10, "search": agency_name})
+            response.raise_for_status()
+            data = response.json()
+            launches = data.get("results", [])
+            
+            #Save the result to the cache for next time
+            # It will use the default 300-second timeout
+            cache.set(cache_key, launches)
+            
+        except requests.RequestException as e:
+            print(f"Error fetching API: {e}")
+            launches = []
 
     context = {
         'launches': launches,
