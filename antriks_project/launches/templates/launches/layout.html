@@ -4,15 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Antriks{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="{% static 'images/antriks.png' %}" alt="Antriks logo"></a>
+        </div>
+    </header>
+
     <main>
         {% block content %}
         {% endblock %}
     </main>
 
-    <script src="{% static 'js/main.js' %}"></script>
+    <button id="scrollTop" class="scroll-top" aria-label="Scroll to top" title="Back to top">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 4v16M6 10l6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <script src="{% static 'js/script.js' %}"></script>
 
 </body>
 </html>
