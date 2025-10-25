@@ -1,5 +1,6 @@
 import requests
 from django.shortcuts import render
+from django.core.cache import cache
 
 # Base URL for The SpaceDevs API
 API_URL = "https://ll.thespacedevs.com/2.3.0/launches/upcoming/"
@@ -9,15 +10,24 @@ def index(request):
     View for the main page.
     Fetches the next 3 upcoming launches.
     """
-    try:
-        # Call the API for the main page
-        response = requests.get(API_URL, params={"limit": 3})
-        response.raise_for_status() # Raise an error for bad responses
-        data = response.json()
-        launches = data.get("results", [])
-    except requests.RequestException as e:
-        print(f"Error fetching API: {e}")
-        launches = [] # Send empty list on error
+    cache_key = "home_launches"
+    launches = cache.get(cache_key)
+    
+    if not launches:
+        try:
+            # Call the API for the main page
+            response = requests.get(API_URL, params={"limit": 3})
+            response.raise_for_status() # Raise an error for bad responses
+            data = response.json()
+            launches = data.get("results", [])
+            
+            #Save the result to the cache for next time
+            # It will use the default 300-second timeout
+            cache.set(cache_key, launches)
+            
+        except requests.RequestException as e:
+            print(f"Error fetching API: {e}")
+            launches = [] # Send empty list on error
 
     context = {
         'launches': launches
